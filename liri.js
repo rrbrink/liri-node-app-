@@ -1,30 +1,48 @@
+
 console.log("hello, I'm Liri, what can i help you with?");
 //require npm twit
-var twit = require("twit");
+var Twit = require("twit");
+var Spotify = require('node-spotify-api');
 //config has my personal info
 var config = require("./config.js");
 //I need to make a process.argv that grabs what is typed and implements it into the function
 var userImput = process.argv[2];
-// for (i = 2; i < process.argv.length; i++) {
-// 	userImput(process.argv[i]);
-// }
+var userTMessage = "";
+
+for (i = 3; i < process.argv.length; i++) {
+	userTMessage = userTMessage + " " + process.argv[i];
+}
 //ask Ryan about foreach to see if it would be better for this situation
 //need to grab the right content for spotify or IMDB, using a for loop
 console.log(userImput);
+console.log(userTMessage, "this is our user message");
 // need to make a for loop that grabs everything said and puts it into an organized string ""
 //put it here
 //call api required information for twitter API
-var T = new twit(config);
+// console.log(new Object, 'this is our new obj');
+
+var t = new Twit(config);
 //twitter information
-var Spotify = require('node-spotify-api');
 var spotify = new Spotify({
     id: '7e260b80585d4520a8ac303aa1b2c09a',
     secret: '563be3e8171c4ef09993aba3bd2dc98d'
 });
 //make an if statment that runs my status if my-tweets is mentioned
-switch ('liri') {
-    case 1:
-        if (userImput == ['tweets']) {
+
+// if (userImput === tweets){
+//     //do some stuf
+// }
+// else if (userImput === tspotify) {
+//     //do some stuf
+// }
+// for (let index = 0; index < 120; index++) {
+//   if(index == 32) {
+//       break; // i'm done with this loop mofo
+//   }
+    
+// }
+switch (userImput) {
+    case 'tweets':
             //params for the api call my username and start date to pull from
             var params = {
                 q: 'rrbrink since:2013-01-01',
@@ -32,7 +50,7 @@ switch ('liri') {
                 count: 100
             };
             //This is my API call to twitter im calling tweets, putting it into gotData
-            T.get('search/tweets', params, gotData);
+            t.get('search/tweets', params, gotData);
             //running function for data
             function gotData(err, data, response) {
                 var tweets = data.statuses;
@@ -42,9 +60,9 @@ switch ('liri') {
                 };
                 // console.log(data)
             };
-        };
+        
         break;
-    case 2:
+    case "2":
         //spotify goes here:P
         //this is a test
         spotify.search({
@@ -68,22 +86,22 @@ switch ('liri') {
             console.log("sorry i dont know that one")
         }
         break;
-    case 5:
+    case "tPost":
         //i want to make it so liri can post for me too here is the code it works but need to add 2 functions
         // insert var right of status
         // make var for the post maybe twitter-post var
         var tweet = {
-            status: "#"
-        }
+            status: userTMessage
+        };
         //ajax call
-        T.post('statuses/update', tweet, tweeted);
+        t.post('statuses/update', tweet, tweeted);
         //function that logs data aswell as to console
         function tweeted(err, data, response) {
             console.log(data)
         };
-
         break;
 }
+
 // tweetThis();
 
 // function tweetThis() {
