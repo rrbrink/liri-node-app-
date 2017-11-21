@@ -1,4 +1,4 @@
-console.log("hello, this is my twitter bot");
+console.log("hello, I'm Liri, what can i help you with?");
 //require npm twit
 var twit = require("twit");
 //config has my personal info
@@ -8,6 +8,7 @@ var userImput = process.argv[2];
 // for (i = 2; i < process.argv.length; i++) {
 // 	userImput(process.argv[i]);
 // }
+//ask Ryan about foreach to see if it would be better for this situation
 
 console.log(userImput);
 // need to make a for loop that grabs everything said and puts it into an organized string ""
@@ -64,6 +65,9 @@ switch ('liri') {
         break;
     case 4:
         //error 200+ fail goes here to return err codes
+        if (userImput = "undefined", "NAN"){
+            console.log("sorry i dont know that one")
+        }
         break;
     case 5:
         //i want to make it so liri can post for me too here is the code it works but need to add 2 functions
