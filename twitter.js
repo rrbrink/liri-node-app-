@@ -9,7 +9,7 @@ var userImput = process.argv[2];
 // 	userImput(process.argv[i]);
 // }
 //ask Ryan about foreach to see if it would be better for this situation
-
+//need to grab the right content for spotify or IMDB, using a for loop
 console.log(userImput);
 // need to make a for loop that grabs everything said and puts it into an organized string ""
 //put it here
@@ -39,7 +39,6 @@ switch ('liri') {
                 //info comeback in weird json so we convert it to text
                 for (i = 0; i < tweets.length; i++) {
                     console.log(tweets[i].text);
-
                 };
                 // console.log(data)
             };
@@ -65,13 +64,14 @@ switch ('liri') {
         break;
     case 4:
         //error 200+ fail goes here to return err codes
-        if (userImput = "undefined", "NAN"){
+        if (userImput = "undefined", "NAN") {
             console.log("sorry i dont know that one")
         }
         break;
     case 5:
         //i want to make it so liri can post for me too here is the code it works but need to add 2 functions
         // insert var right of status
+        // make var for the post maybe twitter-post var
         var tweet = {
             status: "#text goes here"
         }
