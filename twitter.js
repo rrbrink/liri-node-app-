@@ -73,7 +73,7 @@ switch ('liri') {
         // insert var right of status
         // make var for the post maybe twitter-post var
         var tweet = {
-            status: "#text goes here"
+            status: "#"
         }
         //ajax call
         T.post('statuses/update', tweet, tweeted);
@@ -84,3 +84,16 @@ switch ('liri') {
 
         break;
 }
+// tweetThis();
+
+// function tweetThis() {
+//     var tweet = {
+//         status: "#https://www.youtube.com/watch?v=d9q9cJFD5aA&list=LLMCIxBXtd_kP8kxBMJ7WtHw&index=2🔥"
+//     }
+//     //ajax call
+//     T.post('statuses/update', tweet, tweeted);
+//     //function that logs data aswell as to console
+//     function tweeted(err, data, response) {
+//         console.log(data)
+//     };
+// };
